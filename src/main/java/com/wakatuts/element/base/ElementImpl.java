@@ -48,12 +48,10 @@ public class ElementImpl implements Element {
 		}
 	}
 	
-	
 	@Override
 	public void click() {
 		initiateElement();
 		element.get().click();
-		
 	}
 
 	@Override
@@ -67,7 +65,6 @@ public class ElementImpl implements Element {
 	public void sendKeys(CharSequence... keysToSend) {
 		initiateElement();
 		element.get().sendKeys(keysToSend);
-		
 	}
 
 	@Override

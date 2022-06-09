@@ -1,11 +1,14 @@
 package com.wakatuts.tests;
 
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 
 import com.wakatuts.driver.Driver;
 import com.wakatuts.driver.DriverHandler;
+import com.wakatuts.listener.ExtentReportListener;
+import com.wakatuts.listener.TestListener;
 
+@Listeners({TestListener.class, ExtentReportListener.class})
 public class BaseTest {
 	
 	protected static void openBrowser(String url) {
@@ -15,11 +18,6 @@ public class BaseTest {
 	@BeforeMethod
 	public static void initializeBrowser() {
 		Driver.setWebDriver(DriverHandler.createInstance());
-	}
-	
-	@AfterMethod
-	public static void closeBrowser() {
-		Driver.getDriver().close();
 	}
 
 }

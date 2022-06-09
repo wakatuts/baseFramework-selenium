@@ -1,8 +1,8 @@
 package com.wakatuts.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.wakatuts.core.Verify;
 import com.wakatuts.pages.actions.CommonObjectActions;
 import com.wakatuts.pages.actions.ContactPageActions;
 
@@ -13,12 +13,12 @@ public class ContactTest extends BaseTest {
 		openBrowser("http://jupiter.cloud.planittesting.com");
 		CommonObjectActions.goToContact();
 		ContactPageActions.submit();
-		Assert.assertTrue(ContactPageActions.areContactTextInputErrorsDisplayed());
-		Assert.assertEquals(ContactPageActions.getHeaderMessage(), 
+		Verify.isTrue(ContactPageActions.areContactTextInputErrorsDisplayed());
+		Verify.equals(ContactPageActions.getHeaderMessage(), 
 				"We welcome your feedback - but we won't get it unless you complete the form correctly.");
 		ContactPageActions.fillRequiredContactDetails("John", "testEmail@gmail.com", "This is a test message");
-		Assert.assertFalse(ContactPageActions.areContactTextInputErrorsPresent());
-		Assert.assertEquals(ContactPageActions.getHeaderMessage(), 
+		Verify.isFalse(ContactPageActions.areContactTextInputErrorsPresent());
+		Verify.equals(ContactPageActions.getHeaderMessage(), 
 				"We welcome your feedback - tell it how it is.");
 	}
 	
@@ -28,8 +28,8 @@ public class ContactTest extends BaseTest {
 		CommonObjectActions.goToContact();
 		ContactPageActions.fillRequiredContactDetails("John", "testEmail@gmail.com", "This is a test message");
 		ContactPageActions.submit();
-		Assert.assertTrue(CommonObjectActions.isLoadingAnimationNotPresent());
-		Assert.assertEquals(ContactPageActions.getHeaderMessage(), 
+		Verify.isTrue(CommonObjectActions.isLoadingAnimationNotPresent());
+		Verify.equals(ContactPageActions.getHeaderMessage(), 
 				"Thanks John, we appreciate your feedback.");
 		ContactPageActions.goBack();
 	}

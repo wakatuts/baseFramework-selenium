@@ -1,6 +1,6 @@
 package com.wakatuts.element.handler;
 
-import com.wakatuts.element.annotations.ImplementedBy;
+import com.wakatuts.annotations.ImplementedBy;
 import com.wakatuts.element.base.Element;
 
 public class ImplementedByHandler {

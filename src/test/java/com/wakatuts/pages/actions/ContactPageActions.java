@@ -2,7 +2,7 @@ package com.wakatuts.pages.actions;
 
 import com.wakatuts.pages.ContactPage;
 
-public class ContactPageActions extends ContactPage{
+public class ContactPageActions extends ContactPage {
 	
 	public static void submit() {
 		buttonSubmit.click();
@@ -15,19 +15,13 @@ public class ContactPageActions extends ContactPage{
 	}
 	
 	public static boolean areContactTextInputErrorsDisplayed() {
-		if(errorMessageForename.isDisplayed() && errorMessageSurname.isDisplayed() 
-				&& errorMessageMessage.isDisplayed()) {
-			return true;
-		}
-		return false;
+		return (errorMessageForename.isDisplayed() && errorMessageSurname.isDisplayed() 
+				&& errorMessageMessage.isDisplayed());
 	}
 	
 	public static boolean areContactTextInputErrorsPresent() {
-		if(errorMessageForename.isPresent() && errorMessageSurname.isPresent() 
-				&& errorMessageMessage.isPresent()) {
-			return true;
-		}
-		return false;
+		return (errorMessageForename.isPresent() && errorMessageSurname.isPresent() 
+				&& errorMessageMessage.isPresent());
 	}
 	
 	public static String getStrongHeaderMessage() {

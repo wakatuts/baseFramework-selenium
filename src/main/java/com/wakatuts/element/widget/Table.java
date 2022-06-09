@@ -2,7 +2,7 @@ package com.wakatuts.element.widget;
 
 import org.openqa.selenium.WebElement;
 
-import com.wakatuts.element.annotations.ImplementedBy;
+import com.wakatuts.annotations.ImplementedBy;
 import com.wakatuts.element.base.Element;
 
 @ImplementedBy(TableImpl.class)

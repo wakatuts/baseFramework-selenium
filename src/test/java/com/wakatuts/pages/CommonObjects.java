@@ -10,6 +10,7 @@ public interface CommonObjects {
 	//Menu Bar Elements
 	
 	public static final Element menuContact = new ElementImpl(By.xpath("//a[@href='#/contact']"), "Contact menu option");
+	public static final Element menuShop = new ElementImpl(By.xpath("//a[@href='#/shop']"), "Shop menu option");
 	
 	//Loading elements
 

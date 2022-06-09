@@ -1,6 +1,6 @@
 package com.wakatuts.element.base;
 
-import com.wakatuts.element.annotations.ImplementedBy;
+import com.wakatuts.annotations.ImplementedBy;
 
 @ImplementedBy(WebListImpl.class)
 public interface WebList<E> {
