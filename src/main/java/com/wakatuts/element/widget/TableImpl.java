@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.wakatuts.core.TestLogger;
 import com.wakatuts.element.base.ElementImpl;
 
 
@@ -32,7 +33,7 @@ public class TableImpl extends ElementImpl implements Table{
 
 	@Override
 	public int getColumnCount() {
-
+		TestLogger.setInfo("ACTION", "Getting option count from " + this.elementName);
 		return findElement(By.cssSelector("tr")).findElements(
 				By.cssSelector("*")).size();
 		// Would ideally do:
@@ -42,6 +43,7 @@ public class TableImpl extends ElementImpl implements Table{
 
 	@Override
 	public WebElement getCellAtIndex(int rowIdx, int colIdx) {
+		TestLogger.setInfo("ACTION", "Getting cell from " + this.elementName + " with row " + rowIdx + " and column " + colIdx);
 		// Get the row at the specified index
 		WebElement row = getRows().get(rowIdx);
 
@@ -68,6 +70,7 @@ public class TableImpl extends ElementImpl implements Table{
 	 * @return list of row WebElements
 	 */
 	private List<WebElement> getRows() {
+		TestLogger.setInfo("ACTION", "Getting all rows from " + this.elementName);
 		List<WebElement> rows = new ArrayList<WebElement>();
 		
 		//Header rows

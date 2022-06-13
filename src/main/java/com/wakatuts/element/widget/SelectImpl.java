@@ -9,6 +9,7 @@ import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
+import com.wakatuts.core.TestLogger;
 import com.wakatuts.element.base.ElementImpl;
 
 
@@ -42,6 +43,7 @@ public class SelectImpl extends ElementImpl implements Select{
      */
     public boolean isMultiple() {
     	initiateSelect();
+    	TestLogger.setInfo("ACTION", "Checking element " + this.elementName + " if it is multiple select");
         return innerSelect.isMultiple();
     }
 
@@ -53,6 +55,7 @@ public class SelectImpl extends ElementImpl implements Select{
      */
     public void deselectByIndex(int index) {
     	initiateSelect();
+    	TestLogger.setInfo("ACTION", "Deselecting option with index " + index + " from " + this.elementName);
         innerSelect.deselectByIndex(index);
     }
 
@@ -67,6 +70,7 @@ public class SelectImpl extends ElementImpl implements Select{
      *             or the elements are not visible or disabled.
      */
     public void selectByValue(String value) {
+    	TestLogger.setInfo("ACTION", "Selecting option with value " + value + " from " + this.elementName);
         String builder = ".//option[@value = " + escapeQuotes(value) +
                 "]";
         List<WebElement> options =
@@ -91,6 +95,7 @@ public class SelectImpl extends ElementImpl implements Select{
      */
     public WebElement getFirstSelectedOption() {
     	initiateSelect();
+    	TestLogger.setInfo("ACTION", "Getting first selected option from " + this.elementName);
         return innerSelect.getFirstSelectedOption();
     }
 
@@ -106,6 +111,7 @@ public class SelectImpl extends ElementImpl implements Select{
      * @see org.openqa.selenium.support.ui.Select#selectByVisibleText(String)
      */
     public void selectByVisibleText(String text) {
+    	TestLogger.setInfo("ACTION", "Selecting option with visible text " + text + " from " + this.elementName);
         final WebElement element = getWrappedElement();
         // try to find the option via XPATH ...
         List<WebElement> options =
@@ -156,6 +162,7 @@ public class SelectImpl extends ElementImpl implements Select{
      */
     public void deselectByValue(String value) {
     	initiateSelect();
+    	TestLogger.setInfo("ACTION", "Deselecting option with value " + value + " from " + this.elementName);
         innerSelect.deselectByValue(value);
     }
 
@@ -166,6 +173,7 @@ public class SelectImpl extends ElementImpl implements Select{
      */
     public void deselectAll() {
     	initiateSelect();
+    	TestLogger.setInfo("ACTION", "Deselecting all options from " + this.elementName);
         innerSelect.deselectAll();
     }
 
@@ -177,6 +185,7 @@ public class SelectImpl extends ElementImpl implements Select{
      */
     public List<WebElement> getAllSelectedOptions() {
     	initiateSelect();
+    	TestLogger.setInfo("ACTION", "Getting all selected options from " + this.elementName);
         return innerSelect.getAllSelectedOptions();
     }
 
@@ -188,6 +197,7 @@ public class SelectImpl extends ElementImpl implements Select{
      */
     public List<WebElement> getOptions() {
     	initiateSelect();
+    	TestLogger.setInfo("ACTION", "Getting all options from " + this.elementName);
         return innerSelect.getOptions();
     }
 
@@ -199,6 +209,7 @@ public class SelectImpl extends ElementImpl implements Select{
      */
     public void deselectByVisibleText(String text) {
     	initiateSelect();
+    	TestLogger.setInfo("ACTION", "Deselecting option with visible text " + text + " from " + this.elementName);
         innerSelect.deselectByVisibleText(text);
     }
 
@@ -212,6 +223,7 @@ public class SelectImpl extends ElementImpl implements Select{
      * @see org.openqa.selenium.support.ui.Select#selectByIndex(int)
      */
     public void selectByIndex(int index) {
+    	TestLogger.setInfo("ACTION", "Selecting option with index " + index + " from " + this.elementName);
         String match = String.valueOf(index);
 
         State state = State.NOT_FOUND;

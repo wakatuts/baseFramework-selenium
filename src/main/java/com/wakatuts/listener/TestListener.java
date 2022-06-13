@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -50,6 +51,7 @@ public class TestListener implements IInvokedMethodListener, ISuiteListener {
 				}
 				System.out.println("Closing webdriver session: " + Thread.currentThread().getId());
 				Driver.getDriver().quit();
+				ExtentReportHandler.getTest().getModel().setEndTime(Calendar.getInstance().getTime());
 				Driver.removeDriver();
 			}
 		}

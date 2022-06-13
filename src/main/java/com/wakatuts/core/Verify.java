@@ -22,36 +22,44 @@ public class Verify {
 
 	public static void equals(String actual, String expected) {
 		Assert.assertEquals(actual, expected, actual + " is not equal to " + expected);
+		TestLogger.setPass("Actual string is \'" + actual + "\'");
 	}
 	
-	public static void contains(String actual, String expected) {
-		Assert.assertTrue(actual.contains(expected), actual + " does not contain " + expected);
+	public static void contains(String mainString, String expected) {
+		Assert.assertTrue(mainString.contains(expected), mainString + " does not contain " + expected);
+		TestLogger.setPass(mainString + " contains " + expected);
 	}
 	
 	public static void equalsIgnoreCase(String actual, String expected) {
 		Assert.assertTrue(actual.equalsIgnoreCase(expected), 
 				actual + " does not equals ignore case to " + expected);
+		TestLogger.setPass("Actual string is " + actual + "\'");
 	}
 	
-	public static void isTrue(Boolean condition) {
-		Assert.assertTrue(condition);
+	public static void isTrue(Boolean condition, String expectedResult) {
+		Assert.assertTrue(condition, "expected result \'" + expectedResult + "\' is not met");
+		TestLogger.setPass(expectedResult);
 	}
 		
-	public static void isFalse(Boolean condition) {
-		Assert.assertFalse(condition);
+	public static void isFalse(Boolean condition, String expectedResult) {
+		Assert.assertFalse(condition, "expected result \'" + expectedResult + "\' is not met");
+		TestLogger.setPass(expectedResult);
 	}
 	
 	public static void softEquals(String actual, String expected) {
 		softAssert.get().assertEquals(actual, expected, actual + " is not equal to " + expected);
+		TestLogger.setPass("Actual string is \'" + actual + "\'");
 	}
 	
-	public static void softContains(String actual, String expected) {
-		softAssert.get().assertTrue(actual.contains(expected), actual + " does not contain " + expected);
+	public static void softContains(String mainString, String expected) {
+		softAssert.get().assertTrue(mainString.contains(expected), mainString + " does not contain " + expected);
+		TestLogger.setPass(mainString + " contains " + expected);
 	}
 	
 	public static void softEqualsIgnoreCase(String actual, String expected) {
 		softAssert.get().assertTrue(actual.equalsIgnoreCase(expected), 
 				actual + " does not equals ignore case to " + expected);
+		TestLogger.setPass("Actual string is \'" + actual + "\'");
 	}
 
 }

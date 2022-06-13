@@ -3,6 +3,7 @@ package com.wakatuts.element.widget;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.wakatuts.core.TestLogger;
 import com.wakatuts.element.base.ElementImpl;
 
 
@@ -23,6 +24,7 @@ public class LabelImpl extends ElementImpl implements Label{
 
     @Override
     public String getFor() {
+    	TestLogger.setInfo("ACTION", "Getting attribute For from " + this.elementName);
         return getWrappedElement().getAttribute("for");
     }
 

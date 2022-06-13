@@ -26,5 +26,9 @@ public class Driver {
     	
     	webDriver.remove();
     }
+    
+    public static void openBrowser(String url) {
+    	getDriver().get(url);
+    }
 
 }

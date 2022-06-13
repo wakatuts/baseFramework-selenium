@@ -1,6 +1,7 @@
 package com.wakatuts.core;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -20,8 +21,9 @@ public class ExtentReportHandler {
 	
 	public static void setTest(String testName) {
 		extentTestThread.set(extentReports.createTest(testName));
+		extentTestThread.get().getModel().setStartTime(Calendar.getInstance().getTime());
 	}
-	
+
 	public static void setReports() {
 		extentSparkReporter = new ExtentSparkReporter(Constants.EXTENT_REPORT_PATH);
 		extentSparkReporter.config().setDocumentTitle("Regression Results");
