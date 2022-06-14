@@ -19,6 +19,7 @@ import org.testng.ISuiteListener;
 import org.testng.ITestResult;
 
 import com.wakatuts.core.ExtentReportHandler;
+import com.wakatuts.core.TestLogger;
 import com.wakatuts.dataprovider.Constants;
 import com.wakatuts.driver.Driver;
 
@@ -34,9 +35,9 @@ public class TestListener implements IInvokedMethodListener, ISuiteListener {
 	@Override
 	public void beforeInvocation(IInvokedMethod method, ITestResult result) {
 		if(method.isTestMethod()) {
-			//TODO add logger
-			System.out.println("Running test --> " + method.getTestMethod().getMethodName());
 			ExtentReportHandler.setTest(method.getTestMethod().getMethodName());
+			TestLogger.setInfo("TEST NAME", method.getTestMethod().getMethodName());
+			TestLogger.setInfo("TEST DESCRIPTION", method.getTestMethod().getDescription());
 		}
 	}
 	

@@ -1,39 +1,48 @@
 package com.wakatuts.pages.actions;
 
+import com.wakatuts.page.actions.IActions;
 import com.wakatuts.pages.ContactPage;
 
-public class ContactPageActions extends ContactPage {
+public class ContactPageActions extends ContactPage implements IActions {
 	
-	public static void submit() {
-		buttonSubmit.click();
+	@Override
+	public Boolean isNavigatedToPage() {
+		return messageHeader.isDisplayed();
 	}
 	
-	public static void fillRequiredContactDetails(String forname, String email, String message) {
+	public ContactPageActions submit() {
+		buttonSubmit.click();
+		return this;
+	}
+	
+	public ContactPageActions fillRequiredContactDetails(String forname, String email, String message) {
 		textInputForename.set(forname);
 		textInputEmail.set(email);
 		textInputMessage.set(message);
+		return this;
 	}
 	
-	public static boolean areContactTextInputErrorsDisplayed() {
+	public ContactPageActions goBack() {
+		buttonBack.click();
+		return this;
+	}
+	
+	public boolean areContactTextInputErrorsDisplayed() {
 		return (errorMessageForename.isDisplayed() && errorMessageSurname.isDisplayed() 
 				&& errorMessageMessage.isDisplayed());
 	}
 	
-	public static boolean areContactTextInputErrorsPresent() {
+	public boolean areContactTextInputErrorsPresent() {
 		return (errorMessageForename.isPresent() && errorMessageSurname.isPresent() 
 				&& errorMessageMessage.isPresent());
 	}
 	
-	public static String getStrongHeaderMessage() {
+	public String getStrongHeaderMessage() {
 		return messageHeaderInBold.getText();
 	}
 	
-	public static String getHeaderMessage() {
+	public String getHeaderMessage() {
 		return messageHeader.getText();
-	}
-	
-	public static void goBack() {
-		buttonBack.click();
 	}
 
 }
