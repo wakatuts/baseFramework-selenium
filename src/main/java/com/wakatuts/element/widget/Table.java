@@ -1,5 +1,7 @@
 package com.wakatuts.element.widget;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 
 import com.wakatuts.annotations.ImplementedBy;
@@ -26,5 +28,10 @@ public interface Table extends Element{
      * @param colIdx The zero based index of the column
      * @return the WebElement of the cell at the specified index
      */
-    WebElement getCellAtIndex(int rowIdx, int colIdx); 
+    WebElement getCellAtIndex(int rowIdx, int colIdx);
+
+    int getBodyRowCount();
+    
+    List<String> getAllTextsOfAColumn(int colNum);
+    
 }

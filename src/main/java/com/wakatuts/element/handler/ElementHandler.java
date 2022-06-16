@@ -71,10 +71,8 @@ public class ElementHandler {
 	        	try {
 	        		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.SHORT_TIMEOUT));
 	        		element = driver.findElement(by);
-	        		System.out.println("false");
 				} catch (Exception e) {
 					element = null;
-					System.out.println("true");
 				} finally {
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_TIMEOUT));
 				}

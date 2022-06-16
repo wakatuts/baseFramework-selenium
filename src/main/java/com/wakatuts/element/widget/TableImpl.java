@@ -45,7 +45,7 @@ public class TableImpl extends ElementImpl implements Table{
 	public WebElement getCellAtIndex(int rowIdx, int colIdx) {
 		TestLogger.setInfo("ACTION", "Getting cell from " + this.elementName + " with row " + rowIdx + " and column " + colIdx);
 		// Get the row at the specified index
-		WebElement row = getRows().get(rowIdx);
+		WebElement row = getBodyRows().get(rowIdx);
 
 		List<WebElement> cells;
 
@@ -70,7 +70,6 @@ public class TableImpl extends ElementImpl implements Table{
 	 * @return list of row WebElements
 	 */
 	private List<WebElement> getRows() {
-		TestLogger.setInfo("ACTION", "Getting all rows from " + this.elementName);
 		List<WebElement> rows = new ArrayList<WebElement>();
 		
 		//Header rows
@@ -83,6 +82,40 @@ public class TableImpl extends ElementImpl implements Table{
 		rows.addAll(findElements(By.cssSelector("tfoot tr")));
 
 		return rows;
+	}
+	
+	private List<WebElement> getBodyRows() {
+		List<WebElement> rows = new ArrayList<WebElement>();
+		
+		//Body rows
+		rows.addAll(findElements(By.cssSelector("tbody tr")));
+		
+		return rows;
+	}
+	
+	//starts at 1
+	private List<WebElement> getListOfColumnValues(int colNum) {
+		List<WebElement> columnList = new ArrayList<WebElement>();
+		
+		//Body rows
+		columnList.addAll(findElements(By.cssSelector("tbody tr td:nth-child(" + colNum + ")")));
+		
+		return columnList;
+	}
+	
+	@Override
+	public List<String> getAllTextsOfAColumn(int colNum) {
+		List<String> columnValues = new ArrayList<String>();
+		for(WebElement e : getListOfColumnValues(colNum)) {
+			columnValues.add(e.getText());
+		}
+		return columnValues;
+		
+	}
+
+	@Override
+	public int getBodyRowCount() {
+		return getBodyRows().size();
 	}
 
 }

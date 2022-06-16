@@ -10,7 +10,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
-  
+    
   <build>
   	<plugins>
   		<plugin>
@@ -28,6 +28,9 @@
   				<optimize>true</optimize>
   				<useIncrementalCompilation>true</useIncrementalCompilation>
   				<verbose>false</verbose>
+  				<suiteXmlFiles>
+  					<suiteXmlFile>${testng.suite}</suiteXmlFile>
+  				</suiteXmlFiles>
   			</configuration>
   		</plugin>
   	</plugins>

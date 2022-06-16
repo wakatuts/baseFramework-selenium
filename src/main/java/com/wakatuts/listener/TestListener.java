@@ -74,6 +74,7 @@ public class TestListener implements IInvokedMethodListener, ISuiteListener {
             FileUtils.copyFile(screenShot, destination);
             
             ExtentReportHandler.setScreenshot(fileName);
+            TestLogger.setFail(testResult.getThrowable().getMessage());
         }
     }
 

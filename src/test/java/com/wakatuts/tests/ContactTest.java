@@ -23,7 +23,7 @@ public class ContactTest extends BaseTest {
 				"We welcome your feedback - tell it how it is.");
 	}
 	
-	@Test(invocationCount=5)
+	@Test(description="Test Case 2", invocationCount=5)
 	public static void submitFeedbackTest() {
 		openBrowser("http://jupiter.cloud.planittesting.com");
 		ContactPageActions pageActions = CommonObjectActions.goToContact()

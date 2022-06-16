@@ -22,7 +22,7 @@ import com.wakatuts.element.handler.ElementHandler;
 
 public class ElementImpl implements Element {
 
-	public static ThreadLocal<WebElement> element = new ThreadLocal<WebElement>();
+	public ThreadLocal<WebElement> element = new ThreadLocal<WebElement>();
 	private final WebElement localElement;
 	private final By by;
 	protected final String elementName;

@@ -11,6 +11,7 @@ public class CommonObjects {
 	
 	protected static final Element menuContact = new ElementImpl(By.xpath("//a[@href='#/contact']"), "Contact menu option");
 	protected static final Element menuShop = new ElementImpl(By.xpath("//a[@href='#/shop']"), "Shop menu option");
+	protected static final Element menuCart = new ElementImpl(By.xpath("//a[@href='#/cart']"), "Cart menu option");
 	
 	//Loading elements
 

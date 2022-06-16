@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="regression-test" parallel="methods" thread-count="4">
+
+    <test name="regressionTests">
+        <classes>
+            <class name="com.wakatuts.tests.ContactTest"/>
+            <class name="com.wakatuts.tests.ShopTest"/>
+        </classes>
+    </test>
+
+</suite>

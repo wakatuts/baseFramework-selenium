@@ -25,6 +25,11 @@ public class Verify {
 		TestLogger.setPass("Actual string is \'" + actual + "\'");
 	}
 	
+	public static void equals(Double actual, Double expected) {
+		Assert.assertEquals(actual, expected, actual + " is not equal to " + expected);
+		TestLogger.setPass("Actual number is \'" + actual + "\'");
+	}
+	
 	public static void contains(String mainString, String expected) {
 		Assert.assertTrue(mainString.contains(expected), mainString + " does not contain " + expected);
 		TestLogger.setPass(mainString + " contains " + expected);
