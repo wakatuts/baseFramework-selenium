@@ -24,3 +24,9 @@ jobs:
         cache: maven
     - name: Run Regression Test
       run: mvn test -Dtestng.suite=src\\test\\resources\\Suite\\testng.xml --file pom.xml
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v3.1.0
+      if: always()
+      with:
+        name: Regression Test Results
+        path: target
