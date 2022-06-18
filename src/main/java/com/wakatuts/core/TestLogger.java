@@ -16,6 +16,10 @@ public class TestLogger {
 		logger.info("[" + messageType.toUpperCase() + "] " + message);
 	}
 	
+	public static void setConsoleLog(String messageType, String message) {
+		logger.info("[" + messageType.toUpperCase() + "] " + message);
+	}
+	
 	public static void setPass(String message) {
 		ExtentReportHandler.getTest().log(Status.PASS, MarkupHelper.createLabel(message, ExtentColor.GREEN));
 		logger.info("[PASSED] " + message);

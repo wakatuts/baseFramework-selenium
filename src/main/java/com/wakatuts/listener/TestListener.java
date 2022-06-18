@@ -29,6 +29,7 @@ public class TestListener implements IInvokedMethodListener, ITestListener, IExe
 	
 	@Override
 	public void onExecutionFinish() {
+		TestLogger.setConsoleLog("INFO", "Creating file: " + Constants.EXTENT_REPORT_PATH);
 		ExtentReportHandler.getReports().flush();
 	}
 	
