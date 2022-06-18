@@ -24,8 +24,10 @@ jobs:
         cache: maven
     - name: Run Regression Test
       run: mvn test -Dtestng.suite=src\\test\\resources\\Suite\\testng.xml --file pom.xml
-    - name: HTML Preview
-      uses: pavi2410/html-preview-action@v2
+    - name: Upload Regression Test Result
+      uses: actions/upload-artifact@v3.1.0
       if: always()
       with:
-        html_file: ./target/extent-reports/ExtentTestResult.html
+        name: ExtentResult
+        path: ./target/extent-reports/ExtentTestResult.html
+        retention-days: 3
