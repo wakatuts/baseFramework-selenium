@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 public class TestLogger {
 	
@@ -15,12 +17,17 @@ public class TestLogger {
 	}
 	
 	public static void setPass(String message) {
+		ExtentReportHandler.getTest().log(Status.PASS, MarkupHelper.createLabel(message, ExtentColor.GREEN));
+		logger.info("[PASSED] " + message);
+	}
+	
+	public static void setPassStep(String message) {
 		ExtentReportHandler.getTest().log(Status.PASS, message);
 		logger.info("[PASSED] " + message);
 	}
 	
 	public static void setFail(String message) {
-		ExtentReportHandler.getTest().log(Status.FAIL, message);
+		ExtentReportHandler.getTest().log(Status.FAIL, MarkupHelper.createCodeBlock(message));
 		logger.error("[FAILED] " + message);
 	}
 

@@ -48,13 +48,6 @@ public class ExtentReportListener implements IReporter {
  
                 for (String group : result.getMethod().getGroups())
                     test.assignCategory(group);
- 
-                String message = "Test " + status.toString().toLowerCase() + "ed";
- 
-                if (result.getThrowable() != null)
-                    message = result.getThrowable().getMessage();
- 
-                test.log(status, message);
             }
         }
     }

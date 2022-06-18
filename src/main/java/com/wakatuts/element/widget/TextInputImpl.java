@@ -31,7 +31,7 @@ public class TextInputImpl extends ElementImpl implements TextInput{
     @Override
     public void set(Object text) {
         WebElement element = getWrappedElement();
-        TestLogger.setInfo("ACTION", "Setting text to " + this.elementName);
+        TestLogger.setInfo("ACTION", "Setting \'"+ text +"\' to " + this.elementName);
         element.clear();
         element.sendKeys(String.valueOf(text));
     }

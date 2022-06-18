@@ -15,7 +15,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverHandler {
 	
-	private static WebDriver driver;
 	private static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
  
 	public static WebDriver createInstance() {
@@ -38,6 +37,7 @@ public class DriverHandler {
 	}
 	
 	private static WebDriver createDriver() {
+		WebDriver driver = null;
 		String driverType = ConfigReader.getStringProperty("browser");
 		switch (driverType.toUpperCase()) {
 		case "FIREFOX": 

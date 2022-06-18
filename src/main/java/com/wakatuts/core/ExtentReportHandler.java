@@ -23,6 +23,10 @@ public class ExtentReportHandler {
 		extentTestThread.set(extentReports.createTest(testName));
 		extentTestThread.get().getModel().setStartTime(Calendar.getInstance().getTime());
 	}
+	
+	public static void endTest() {
+		extentTestThread.get().getModel().setEndTime(Calendar.getInstance().getTime());
+	}
 
 	public static void setReports() {
 		extentSparkReporter = new ExtentSparkReporter(Constants.EXTENT_REPORT_PATH);
@@ -41,7 +45,7 @@ public class ExtentReportHandler {
 	}
 	
 	public static void setScreenshot(String fileName) throws IOException {
-		getTest().addScreenCaptureFromPath(Constants.EXTENT_REPORT_PATH + fileName);
+		getTest().addScreenCaptureFromPath(Constants.SCREENSHOT_PATH + fileName);
 	}
 
 }

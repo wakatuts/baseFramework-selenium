@@ -6,6 +6,7 @@ import java.util.Map;
 import org.testng.annotations.Test;
 
 import com.wakatuts.core.Verify;
+import com.wakatuts.driver.Driver;
 import com.wakatuts.pages.actions.CartPageActions;
 import com.wakatuts.pages.actions.CommonObjectActions;
 
@@ -13,7 +14,7 @@ public class ShopTest extends BaseTest {
 
 	@Test(description="Test Case 3")
 	public static void addItemInCartTest() {
-		openBrowser("http://jupiter.cloud.planittesting.com");
+		Driver.openBrowser("http://jupiter.cloud.planittesting.com");
 		Map<String, Integer> toyMap = new HashMap<>();
 		toyMap.put("Funny Cow", 2);
 		toyMap.put("Fluffy Bunny", 1);
@@ -25,7 +26,7 @@ public class ShopTest extends BaseTest {
 	
 	@Test(description="Test Case 4")
 	public static void totalCartCalculationTest() {
-		openBrowser("http://jupiter.cloud.planittesting.com");
+		Driver.openBrowser("http://jupiter.cloud.planittesting.com");
 		Map<String, Integer> toyMap = new HashMap<>();
 		toyMap.put("Stuffed Frog", 2);
 		toyMap.put("Fluffy Bunny", 5);

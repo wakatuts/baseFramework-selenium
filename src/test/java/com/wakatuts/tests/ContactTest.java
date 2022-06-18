@@ -3,6 +3,7 @@ package com.wakatuts.tests;
 import org.testng.annotations.Test;
 
 import com.wakatuts.core.Verify;
+import com.wakatuts.driver.Driver;
 import com.wakatuts.pages.actions.CommonObjectActions;
 import com.wakatuts.pages.actions.ContactPageActions;
 
@@ -10,7 +11,7 @@ public class ContactTest extends BaseTest {
 
 	@Test(description="Test Case 1")
 	public static void contactPageErrorsTest() {
-		openBrowser("http://jupiter.cloud.planittesting.com");
+		Driver.openBrowser("http://jupiter.cloud.planittesting.com");
 		ContactPageActions pageActions = CommonObjectActions.goToContact().submit();
 		Verify.isTrue(pageActions.areContactTextInputErrorsDisplayed(),
 				"Contact Page errors are displayed");
@@ -25,7 +26,7 @@ public class ContactTest extends BaseTest {
 	
 	@Test(description="Test Case 2", invocationCount=5)
 	public static void submitFeedbackTest() {
-		openBrowser("http://jupiter.cloud.planittesting.com");
+		Driver.openBrowser("http://jupiter.cloud.planittesting.com");
 		ContactPageActions pageActions = CommonObjectActions.goToContact()
 										.fillRequiredContactDetails("John", "testEmail@gmail.com", "This is a test message")
 										.submit();

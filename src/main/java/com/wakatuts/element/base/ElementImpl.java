@@ -68,7 +68,7 @@ public class ElementImpl implements Element {
 	@Override
 	public void sendKeys(CharSequence... keysToSend) {
 		initiateElement();
-		TestLogger.setInfo("ACTION", "Sending keys to " + this.elementName);
+		TestLogger.setInfo("ACTION", "Sending \'"+ keysToSend +"\' to " + this.elementName);
 		element.get().sendKeys(keysToSend);
 	}
 
