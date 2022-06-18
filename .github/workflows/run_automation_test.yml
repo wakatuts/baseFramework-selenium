@@ -28,5 +28,4 @@ jobs:
       uses: pavi2410/html-preview-action@v2
       if: always()
       with:
-        name: Regression Test Results
         html_file: ./target/extent-reports/ExtentTestResult.html
