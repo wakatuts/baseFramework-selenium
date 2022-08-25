@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.epam.healenium.SelfHealingDriver;
 import com.wakatuts.dataprovider.ConfigReader;
 import com.wakatuts.dataprovider.Constants;
 
@@ -38,6 +40,7 @@ public class DriverHandler {
 	
 	private static WebDriver createDriver() {
 		WebDriver driver = null;
+		SelfHealingDriver healDriver = null;
 		String driverType = ConfigReader.getStringProperty("browser");
 		switch (driverType.toUpperCase()) {
 		case "FIREFOX": 
@@ -78,13 +81,14 @@ public class DriverHandler {
 			driver.manage().deleteAllCookies();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_TIMEOUT));
 			driver.manage().window().maximize();
+			healDriver = SelfHealingDriver.create(driver);
 			break;
 		case "EDGE": 
 			driver = new EdgeDriver();
 			break;
 		}
 		
-		return driver;
+		return healDriver;
 		
 	}
 
