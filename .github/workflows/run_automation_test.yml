@@ -22,6 +22,8 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
+    - name: Start Healenium server
+      run: docker-compose up -d
     - name: Run Regression Test
       run: mvn test -Dtestng.suite=src\\test\\resources\\Suite\\testng.xml --file pom.xml
     - name: Upload Regression Test Result
