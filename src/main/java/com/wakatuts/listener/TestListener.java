@@ -8,6 +8,7 @@ import java.util.Date;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.IExecutionListener;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
@@ -15,6 +16,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.wakatuts.core.ExtentReportHandler;
 import com.wakatuts.core.TestLogger;
 import com.wakatuts.dataprovider.Constants;
@@ -64,7 +66,8 @@ public class TestListener implements IInvokedMethodListener, ITestListener, IExe
     public void takeScreenshotOnFailure(ITestResult testResult) throws IOException {
     	String fileName = testResult.getName() + "-"
                 + new SimpleDateFormat("dd-MM-yyyy HH-mm-ss").format(new Date()) + ".png";
-        File screenShot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
+    	WebDriver delegateDriver = ((SelfHealingDriver) Driver.getDriver()).getDelegate();
+        File screenShot = ((TakesScreenshot) delegateDriver).getScreenshotAs(OutputType.FILE);
         File destination = new File(Constants.SCREENSHOT_PATH + fileName);
         FileUtils.copyFile(screenShot, destination);
         ExtentReportHandler.setScreenshot(fileName);
